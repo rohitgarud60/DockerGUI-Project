@@ -1,0 +1,57 @@
+Follwing are the Steps to Launch GUI in Docker Container
+Here i am launching the firefox in the Docker Conatiner
+
+step 1:- start docker demon
+#systemctl start docker
+
+step 2:- we need the any OS in Docker so Lauch the Centos:7 
+#docker pull centos:7
+
+step 3:- run the docker images(centos:7)
+# docker container run -it --name=myOS centos:7 
+
+step 4:- we need a docker file to lauch the firefox in Docker conainer
+        create a dockerfile and add the following contain (DO NOT CREATE IN CONATAINER)
+	create file in home directory
+	
+
+	from centos:7
+	run yum install firefox -y
+	cmd ["/usr/bin/firefox"]
+
+
+
+step 5:- after creating the dockerfile in home directory run the following commond
+#docker build -t firefox .          (here dot . means current directory)
+ 
+after the step 5 new firefox docker images created, using #docker images 
+we can see this firefox image.
+
+
+step 6:- After creating the firefox images we need a display variable to launch the firefox in the docker conatainer, using the follwiing commnd we can create the diplay variable and launch the firefox
+#docker container run --env="DISPLAY" --net=host firefox
+
+
+after this 6 steps you can launch the firefox in the docker conatiner
+
+
+
+
+Thank you,
+ROHIT GARUD
++91-9503155122
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
